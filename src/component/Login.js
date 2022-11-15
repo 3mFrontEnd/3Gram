@@ -1,4 +1,6 @@
 import React from 'react';
+import firebase from 'firebase/app';
+import { auth } from '../firebase';
 
 // icons
 import google from "../assets/google.svg";
@@ -12,7 +14,10 @@ const Login = () => {
             <div className={styles.loginCard}>
                 <h2>Welcome to 3Gram!</h2>
                 
-                <div className={styles.button}>
+                <div 
+                    className={styles.button}
+                    onClick={()=> auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())}    
+                >
                     <img src={google} alt="google svg" />Sign In with Google
                 </div>
             </div>
